@@ -1,4 +1,5 @@
 import {
+  BackButton,
   ButtonSubmit,
   ButtonWrapper,
   Form,
@@ -11,11 +12,15 @@ import {
   ThemeLabel,
   Thumb,
 } from "./Settings.styled";
+import { useNavigate } from "react-router-dom";
 
 export const Settings = () => {
+  const navigate = useNavigate();
+
   return (
     <Thumb>
       <FormWrapper className="col-6">
+        <BackButton onClick={() => navigate(-1)}>Back to Home</BackButton>
         <FormTitle>Settings</FormTitle>
         <Form>
           <Label htmlFor="firstname">Language</Label>

@@ -95,3 +95,16 @@ export const Options = styled.option``;
 export const ThemeInput = styled.input``;
 
 export const ThemeLabel = styled.label``;
+
+export const BackButton = styled.button`
+  background-color: #f1f1f1;
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  padding: 7px 10px;
+  border: none;
+  outline: none;
+  font-weight: 200;
+  font-family: Poppins;
+  border-radius: 5px;
+`;

@@ -88,12 +88,14 @@ export const PrivateHomePage = () => {
               {user.image ? (
                 <img
                   className="rounded-circle"
-                      src={BASE_URL + "/" + user.image}
-                      width="50"
-                      height="50"
-                    />
+                  src={BASE_URL + "/" + user.image}
+                  width="50"
+                  height="50"
+                />
               ) : (
-                `${user?.first_name?.at(0)}.${user?.last_name?.at(0)}`
+                <Span>
+                  {user?.first_name?.at(0)}.{user?.last_name?.at(0)}
+                </Span>
               )}
               <img src={ArrowDown} alt="Arrow header" />
             </Button>

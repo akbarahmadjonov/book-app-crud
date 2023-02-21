@@ -3,8 +3,10 @@ import * as Yup from "yup";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import {
+  BackButton,
   ButtonSubmit,
   ButtonWrapper,
   FormTitle,
@@ -22,6 +24,7 @@ import { setUser } from "../../../../components/redux/user/userActions";
 import { BASE_URL } from "../../../../API/api";
 
 export const MainProfile = () => {
+  const navigate = useNavigate();
   // GET user
   const [validUser, getValidUser] = useState([]);
 
@@ -124,9 +127,13 @@ export const MainProfile = () => {
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
+          
           {(props) => {
             return (
               <FormWrapper className="col-6">
+                <BackButton onClick={() => navigate(-1)}>
+                  Back to Home
+                </BackButton>
                 <FormTitle>My profile</FormTitle>
                 <Form>
                   <Label htmlFor="firstname">

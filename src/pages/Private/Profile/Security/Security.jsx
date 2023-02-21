@@ -3,7 +3,10 @@ import * as Yup from "yup";
 import { useRef, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { MainProfile } from "../MainProfile/MainProfile";
+import { useNavigate } from "react-router-dom";
 import {
+  BackButton,
   ButtonSubmit,
   ButtonWrapper,
   FormTitle,
@@ -16,6 +19,7 @@ import {
 import { useSelector } from "react-redux";
 
 export const Security = () => {
+  const navigate = useNavigate();
   // Token
   const token = useSelector((state) => state.token.token);
 
@@ -58,6 +62,7 @@ export const Security = () => {
   return (
     <Thumb>
       <FormWrapper className="col-6">
+        <BackButton onClick={() => navigate(-1)}>Back to Home</BackButton>
         <FormTitle>Change Or Recover Your Password:</FormTitle>
         <Formik
           initialValues={initialValues}

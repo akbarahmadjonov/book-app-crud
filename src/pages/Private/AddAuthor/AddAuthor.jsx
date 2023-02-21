@@ -1,6 +1,6 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -31,6 +31,8 @@ import { FormSelect } from "react-bootstrap";
 
 export const AddAuthor = () => {
   const [img, setImg] = useState({ img: "", objImg: "" });
+  const [genre, setGenre] = useState([]);
+
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const dateOfBirthRef = useRef();
@@ -118,6 +120,23 @@ export const AddAuthor = () => {
     genreRef.current.value = "";
     areaRef.current.value = "";
   };
+
+  // Get genres
+
+  useEffect(() => {
+    fetch("http://localhost:5000/genre", {
+      method: "GET",
+      headers: { Authorization: token },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setGenre(data);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
       <GlobalStyle />
@@ -228,15 +247,16 @@ export const AddAuthor = () => {
                     )}
                   </InputFields>
                   <FormSelect
+                    className="w-50"
                     ref={genreRef}
-                    className="d-block w-50"
                     name="genre_id"
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                   >
-                    <FormOption disabled>Genre</FormOption>
-                    <FormOption value="1">1</FormOption>
-                    <FormOption value="2">2</FormOption>
+                    <FormOption disabled>Genres</FormOption>
+                    {genre.map((genre) => (
+                      <FormOption value={genre.id}>{genre.name}</FormOption>
+                    ))}
                   </FormSelect>
                   {props.errors.genre && props.touched.genre && (
                     <InputParagraph>{props.errors.genre}</InputParagraph>
