@@ -1,6 +1,6 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -31,6 +31,8 @@ import { FormSelect } from "react-bootstrap";
 
 export const AddBook = () => {
   const [img, setImg] = useState({ img: "", objImg: "" });
+  const [genre, setGenre] = useState([]);
+  const [user, setUser] = useState([]);
   const titleRef = useRef();
   const pagesRef = useRef();
   const yearRef = useRef();
@@ -91,7 +93,7 @@ export const AddBook = () => {
     formData.append("year", yearRef.current.value);
     formData.append("price", priceRef.current.value);
     formData.append("genre_id", genreRef.current.value);
-    formData.append("author_id", authorRef.current.value);
+    formData.append("author_id", user.id);
     formData.append("description", areaRef.current.value);
     formData.append("image", img.img);
     console.log(token);
@@ -118,6 +120,27 @@ export const AddBook = () => {
     authorRef.current.value = "";
     areaRef.current.value = "";
   };
+
+  useEffect(() => {
+    fetch("http://localhost:5000/genre", {
+      method: "GET",
+      headers: { Authorization: token },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          setGenre(data);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  axios
+    .get("http://localhost:5000/user/me", {
+      headers: { Authorization: token },
+    })
+    .then((data) => setUser(data.data));
+
   return (
     <>
       <GlobalStyle />
@@ -212,13 +235,14 @@ export const AddBook = () => {
                     onBlur={props.handleBlur}
                   >
                     <FormOption disabled>Genre</FormOption>
-                    <FormOption value="1">1</FormOption>
-                    <FormOption value="2">2</FormOption>
+                    {genre.map((genre) => (
+                      <FormOption value={genre.id}>{genre.name}</FormOption>
+                    ))}
                   </FormSelect>
                   {props.errors.genre && props.touched.genre_id && (
                     <InputParagraph>{props.errors.genre_id}</InputParagraph>
                   )}
-                  <FormSelect
+                  {/* <FormSelect
                     ref={authorRef}
                     className="d-block w-50"
                     name="author_id"
@@ -228,7 +252,7 @@ export const AddBook = () => {
                     <FormOption disabled>Author</FormOption>
                     <FormOption value="1">1</FormOption>
                     <FormOption value="2">2</FormOption>
-                  </FormSelect>
+                  </FormSelect> */}
                   {props.errors.author_id && props.touched.author_id && (
                     <InputParagraph>{props.errors.author_id}</InputParagraph>
                   )}

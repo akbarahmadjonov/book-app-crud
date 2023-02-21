@@ -1,32 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import {
-  CardBody,
-  CardBottomImg,
-  CardDesc,
-  CardTitle,
-  CardTopImg,
-  CatCard,
-} from "./Jadid.style";
-
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { CategoryBook } from "./CategoryBook";
 export const Jadid = () => {
+  const [author, setAuthor] = useState([]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:5000/author/genreId/${2}`).then((data) => {
+      if (data) {
+        console.log(data);
+        setAuthor(data.data);
+      }
+    });
+  }, []);
+
   return (
-    <>
-      <div className="row gy-4">
-        <div className="col-md-3">
-          <Link to="">
-            <CatCard>
-              <img height="224px" width="295px" src="" alt="" />
-              <CardBody>
-                <CardTopImg src="" alt="" />
-                <CardTitle></CardTitle>
-                <CardDesc></CardDesc>
-                <CardBottomImg src="" alt="" />
-              </CardBody>
-            </CatCard>
-          </Link>
-        </div>
+    <div className="container">
+      <div className="row justify-content-center gap-5">
+        {author.map((author) => (
+          <CategoryBook key={author.id} obj={author} />
+        ))}
       </div>
-    </>
+    </div>
   );
 };

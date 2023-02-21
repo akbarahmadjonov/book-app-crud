@@ -87,7 +87,7 @@ export const PrivateHomePage = () => {
             <Button onClick={showDropdown}>
               {user.image ? (
                 <img
-                  className="rounded-circle"
+                  className="rounded-circle me-3"
                   src={BASE_URL + "/" + user.image}
                   width="50"
                   height="50"
@@ -148,7 +148,6 @@ export const PrivateHomePage = () => {
         </Wrapper>
         {/* Components */}
         <PrivateHero />
-        <Outlet />
         {/* Components */}
       </Container>
     </>

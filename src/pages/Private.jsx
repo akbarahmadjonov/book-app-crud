@@ -1,6 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { PrivateHomePage } from "../pages/Private/PrivateHomePage/PrivateHomePage";
 import { PrivateHomeBook } from "../pages/Private/PrivateHomeBook/PrivateHomeBook";
+import { TemuriylarBook } from "../components/BookCategory/Temuriylar";
+import { JadidBook } from "../components/BookCategory/Jadid";
+import { SovetBook } from "../components/BookCategory/Sovet";
+import { MustaqillikBook } from "../components/BookCategory/Mustaqillik";
 import { Temuriylar } from "./Private/MainCategory/Temuriylar";
 import { Jadid } from "./Private/MainCategory/Jadid";
 import { Sovet } from "./Private/MainCategory/Sovet";
@@ -19,16 +23,22 @@ export const Private = () => {
     <>
       <Routes>
         {/* <Route path="/" element={<PrivateHomePage />} /> */}
-        <Route path="/privatebook" element={<PrivateHomeBook />} />
+        <Route path="/privatebook" element={<PrivateHomeBook />}>
+          <Route path="temuriylar" element={<TemuriylarBook />} />
+          <Route path="sovetlar" element={<SovetBook />} />
+          <Route path="jadidlar" element={<JadidBook />} />
+          <Route path="mustaqillik" element={<MustaqillikBook />} />
+        </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/addauthor" element={<AddAuthor />} />
 
         <Route path="/" element={<MainCategory />}>
-          <Route path="temuriylar" element={<Temuriylar />} />
-          <Route path="jadid" element={<Jadid />} />
-          <Route path="sovet" element={<Sovet />} />
-          <Route path="mustaqillik" element={<Mustaqillik />} />
+          <Route index path="/" element={<Temuriylar />} />
+          <Route index path="/temuriylar" element={<Temuriylar />} />
+          <Route path="/jadid" element={<Jadid />} />
+          <Route path="/sovet" element={<Sovet />} />
+          <Route path="/mustaqillik" element={<Mustaqillik />} />
         </Route>
 
         <Route path="/" element={<Profile />}>

@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 import { PrivateHomePage } from "../PrivateHomePage/PrivateHomePage";
 import { Jadid } from "./Jadid";
 import {
@@ -64,8 +64,9 @@ export const MainCategory = () => {
             Mustaqillik davri
           </NavLink>
         </RoutesWrapper>
-        <Jadid />
       </RoutesLink>
+      {/* Components */}
+      <Outlet />
     </>
   );
 };
