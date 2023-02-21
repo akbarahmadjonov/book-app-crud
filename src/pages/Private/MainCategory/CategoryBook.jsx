@@ -11,9 +11,9 @@ import {
 } from "./Category.styled";
 import { BASE_URL } from "../../../API/api";
 export const CategoryBook = ({ obj }) => {
-  const { image, first_name, last_name, date_of_birth, date_of_death } = obj;
+  const {id, image, first_name, last_name, date_of_birth, date_of_death } = obj;
   return (
-    <Link className="col-md-3 text-decoration-none" to="/">
+    <Link className="col-md-3 text-decoration-none" to={`author/${id}`}>
       <CatCard>
         <img height="224px" width="295px" src={BASE_URL + "/" + image} alt="" />
         <CardBody>

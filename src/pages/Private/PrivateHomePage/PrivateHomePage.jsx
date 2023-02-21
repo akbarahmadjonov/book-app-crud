@@ -25,6 +25,7 @@ import { setUser } from "../../../components/redux/user/userActions";
 import { PrivateHero } from "./PrivateHero/PrivateHero";
 import { LogoutLink } from "../AddAuthor/AddAuthor.styled";
 import { BASE_URL } from "../../../API/api";
+import { Header } from "../../../components/Header/Header";
 
 export const PrivateHomePage = () => {
   const [show, setShow] = useState(false);
@@ -61,7 +62,7 @@ export const PrivateHomePage = () => {
     <>
       <GlobalStyle />
       <Container className="container">
-        <Wrapper>
+        {/* <Wrapper>
           <Wrapper__inner>
             <NavLink to="/">
               <Img src={Logo} alt="Logo" />
@@ -145,8 +146,9 @@ export const PrivateHomePage = () => {
               </DropdownUl>
             </DropdownWrapper>
           </Content>
-        </Wrapper>
+        </Wrapper> */}
         {/* Components */}
+        <Header />
         <PrivateHero />
         {/* Components */}
       </Container>

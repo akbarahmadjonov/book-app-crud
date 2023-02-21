@@ -35,7 +35,8 @@ export const Span = styled.button`
 export const Button = styled.button`
   cursor: pointer;
   border: none;
-  background-color: transparent;
+  background-color: transparent !important;
+  border: none !important;
 `;
 
 export const Container = styled.div``;
@@ -58,15 +59,4 @@ export const DropdownUl = styled.ul`
 
 export const DropdownLi = styled.li`
   list-style: none;
-`;
-export const LogoutLink = styled.a`
-  display: block;
-  cursor: pointer;
-  padding: 10px;
-  font-family: "Poppins";
-  text-decoration: none;
-  &:hover {
-    background-color: #dc3545 !important;
-    color: #fff;
-  }
 `;

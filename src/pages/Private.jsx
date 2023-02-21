@@ -17,9 +17,10 @@ import { MainProfile } from "./Private/Profile/MainProfile/MainProfile";
 import { Security } from "./Private/Profile/Security/Security";
 import { Settings } from "./Private/Profile/Settings/Settings";
 import { Profile } from "./Private/Profile/Profile";
+import { AuthorSingle } from "./Private/AuthorSingle/AuthorSingle";
 
 export const Private = () => {
-  return (
+  return (  
     <>
       <Routes>
         {/* <Route path="/" element={<PrivateHomePage />} /> */}
@@ -33,6 +34,9 @@ export const Private = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/addauthor" element={<AddAuthor />} />
+
+        {/* Author Single page */}
+        <Route path="/author/:id" element={<AuthorSingle />} />
 
         <Route path="/" element={<MainCategory />}>
           <Route index path="/" element={<Temuriylar />} />

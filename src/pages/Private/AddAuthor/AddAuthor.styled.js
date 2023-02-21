@@ -203,7 +203,11 @@ export const BackButton = styled.button`
 `;
 
 export const LogoutLink = styled.a`
+  display: block;
   cursor: pointer;
+  padding: 10px;
+  font-family: "Poppins";
+  text-decoration: none;
   &:hover {
     background-color: #dc3545 !important;
     color: #fff;

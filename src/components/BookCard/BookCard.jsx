@@ -7,7 +7,10 @@ export const BookCard = ({ obj }) => {
 
   return (
     <>
-      <Link className="col-md-3 card p-0 text-decoration-none" to="/">
+      <Link
+        className="col-md-3 card p-0 text-decoration-none"
+        to={`book/bookId/${id}`}
+      >
         <Image
           className="card-img-top"
           src={BASE_URL + "/" + image}
@@ -16,7 +19,7 @@ export const BookCard = ({ obj }) => {
           alt={title}
         />
         <Title>{title}</Title>
-        <Texts>{description}</Texts>
+        <Texts>{description.split(" ").splice(0, 15).join(" ") + "....."}</Texts>
       </Link>
     </>
   );
