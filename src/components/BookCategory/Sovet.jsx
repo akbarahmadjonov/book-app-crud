@@ -7,7 +7,7 @@ export const SovetBook = () => {
 
   useEffect(() => {
     axios.get(BASE_URL + "/book/genreId/2").then((data) => {
-      if (data.status === 201) {
+      if (data) {
         console.log(data);
         setBook(data.data);
       }

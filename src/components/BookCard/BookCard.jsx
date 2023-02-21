@@ -7,7 +7,7 @@ export const BookCard = ({ obj }) => {
 
   return (
     <>
-      <Link className="col-md-3 card p-0" to="/">
+      <Link className="col-md-3 card p-0 text-decoration-none" to="/">
         <Image
           className="card-img-top"
           src={BASE_URL + "/" + image}

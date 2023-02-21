@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import {
   CategoryLink,
   CategoryWrapper,
@@ -24,6 +25,7 @@ export const Category = () => {
           <CategoryLink to="mustaqillik">Mustaqillik davri</CategoryLink>
         </Item>
       </List>
+      <Outlet/>
     </CategoryWrapper>
   );
 };
