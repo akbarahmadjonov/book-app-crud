@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../../API/api";
 import { Header } from "../../../components/Header/Header";
 import { BookCard } from "../../../components/BookCard/BookCard";
@@ -13,6 +13,7 @@ import {
   AuthorText,
   AuthorWrapper,
   Block,
+  BooksLink,
   BooksTitle,
   BooksWrapper,
   DateBlock,
@@ -89,10 +90,10 @@ export const AuthorSingle = () => {
           <Block>
             <BooksTitle>Asarlari</BooksTitle>
             {authorBooks.map((book) => (
-              <BookCard obj={book} />
+              <BookCard obj={book} key={book.id} />
             ))}
           </Block>
-          <Link to="">Barchasini ko’rish</Link>
+          <BooksLink to="">Barchasini ko’rish</BooksLink>
         </BooksWrapper>
       </Block>
     </>

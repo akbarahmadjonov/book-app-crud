@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Block = styled.div``;
@@ -91,4 +92,16 @@ export const BooksTitle = styled.h2`
   font-size: 31px;
   line-height: 46px;
   color: #d1b89d;
+`;
+
+export const BooksLink = styled(Link)`
+  margin-left: auto;
+  text-decoration: none;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #0d0d0d;
 `;
