@@ -83,6 +83,7 @@ export const BooksWrapper = styled.div`
   display: flex;
   margin-top: 100px;
   margin-bottom: 30px;
+  overflow-x: auto;
 `;
 
 export const BooksTitle = styled.h2`
@@ -92,6 +93,11 @@ export const BooksTitle = styled.h2`
   font-size: 31px;
   line-height: 46px;
   color: #d1b89d;
+`;
+
+export const BooksList = styled.div`
+  display: flex;
+  column-gap: 20px;
 `;
 
 export const BooksLink = styled(Link)`

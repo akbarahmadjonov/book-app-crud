@@ -1,16 +1,14 @@
 import { BASE_URL } from "../../API/api";
-import { Link } from "react-router-dom";
-import { Image, Texts, Title } from "./BookCard.style";
-import { useState } from "react";
+import { BookLink, Image, Texts, Title } from "./BookCard.style";
 
 export const BookCard = ({ obj }) => {
   const { id, image, title, description } = obj;
 
   return (
     <>
-      <Link
+      <BookLink
         className="col-md-3 card p-0 text-decoration-none"
-        to={`book/bookId/${id}`}
+        to={`book/${id}`}
       >
         <Image
           className="card-img-top"
@@ -21,9 +19,9 @@ export const BookCard = ({ obj }) => {
         />
         <Title>{title}</Title>
         <Texts>
-          {description.split(" ").splice(0, 15).join(" ") + "....."}
+          {description.split(" ").splice(0, 10).join(" ") + "....."}
         </Texts>
-      </Link>
+      </BookLink>
     </>
   );
 };

@@ -20,6 +20,7 @@ import {
   DateText,
   DateWrapper,
   Minus,
+  BooksList
 } from "./AuthorSingle.styled";
 
 export const AuthorSingle = () => {
@@ -89,9 +90,11 @@ export const AuthorSingle = () => {
         <BooksWrapper>
           <Block>
             <BooksTitle>Asarlari</BooksTitle>
-            {authorBooks.map((book) => (
-              <BookCard obj={book} key={book.id} />
-            ))}
+            <BooksList>
+              {authorBooks.map((book) => (
+                <BookCard obj={book} key={book.id} />
+              ))}
+            </BooksList>
           </Block>
           <BooksLink to="">Barchasini ko’rish</BooksLink>
         </BooksWrapper>
