@@ -24,7 +24,6 @@ export const Private = () => {
   return (
     <>
       <Routes>
-        {/* <Route path="/" element={<PrivateHomePage />} /> */}
         <Route path="/privatebook" element={<PrivateHomeBook />}>
           <Route path="/privatebook" element={<TemuriylarBook />} />
           <Route path="temuriylar" element={<TemuriylarBook />} />
@@ -32,7 +31,6 @@ export const Private = () => {
           <Route path="jadidlar" element={<JadidBook />} />
           <Route path="mustaqillik" element={<MustaqillikBook />} />
           {/* Author Single page */}
-          {/* <Route path="book/:id" element={<BookSingle />} /> */}
         </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/addbook" element={<AddBook />} />
@@ -58,7 +56,7 @@ export const Private = () => {
         </Route>
       </Routes>
       <ToastContainer />
-      {/* Add links */}
+      {/* Add links here */}
     </>
   );
 };
