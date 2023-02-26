@@ -23,5 +23,5 @@ export const BookSingle = () => {
   }, []);
   console.log(book);
 
-  return <div>BookSingle</div>;
+  return <div>{book}</div>;
 };
