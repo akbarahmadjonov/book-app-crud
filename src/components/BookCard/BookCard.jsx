@@ -4,6 +4,10 @@ import { BookLink, Image, Texts, Title } from "./BookCard.style";
 export const BookCard = ({ obj }) => {
   const { id, image, title, description } = obj;
 
+  // 1. Pathga /: qivolamiz yani bundan keyin id keladi degani
+  // 2. Linkga to ga id yozamiz ya'ni ichma ich routda bu
+  // 3. useparams orqali ovolamiz ma'lumotni singlepageda
+
   return (
     <>
       <BookLink

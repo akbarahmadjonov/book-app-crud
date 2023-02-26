@@ -40,6 +40,7 @@ export const Private = () => {
 
         {/* Author Single page */}
         <Route path="/author/:id" element={<AuthorSingle />} />
+        <Route path="/book/:id" element={<BookSingle />} />
 
         <Route path="/" element={<MainCategory />}>
           <Route index path="/" element={<Temuriylar />} />
